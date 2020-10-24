@@ -36,7 +36,7 @@ Things you may want to cover:
 | password         | string  | null: false  | 
 
 ### Association
-- has_many :item
+- has_many :items
 - has_many :comments
 
 ## items テーブル

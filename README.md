@@ -38,6 +38,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :comments
+- has_many :orders
 
 ## items テーブル
 | Column           | Type       | Options                        |
@@ -60,8 +61,9 @@ Things you may want to cover:
 | item     | references | null: false, foreign_key: true |
 
 ### Association
-has_one :shipping
-belongs_to :item
+- has_one :shipping
+- belongs_to :item
+- belogns_to :user
 
 ## shipping テーブル
 | Column         | Type        | Options                         |

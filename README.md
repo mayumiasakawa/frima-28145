@@ -41,14 +41,18 @@ Things you may want to cover:
 - has_many :orders
 
 ## items テーブル
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| item_name        | string     | null: false                    |
-| item_image       | text       | null: false                    |
-| item_text        | string     | null: false                    |
-| item_category_id | integer    | null: false                    |
-| item_status_id   | integer    | null: false                    |
-| user             | references | null: false, foreign_key: true |
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| name              | string     | null: false                    |
+| text              | string     | null: false                    |
+| category_id       | integer    | null: false                    |
+| status_id         | integer    | null: false                    |
+| price             | integer    | null: false                    |
+| shipping_fee      | integer    | null: false                    |
+| prefecture        | integer    | null: false                    |
+| scheduled_delivery| integer    | null: false                    |
+| user              | references | null: false, foreign_key: true |
+
 ### Association
 - belongs_to :user
 - has_one :order

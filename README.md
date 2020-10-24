@@ -76,3 +76,14 @@ belongs_to :item
 
 ### Association
 belongs_to :order
+
+## comments テーブル
+| Column         | Type    | Options                        |
+| -------------- | ------- | ------------------------------ |
+| text           | string  | null: false                    |
+| user_id        | string  | null: false, foreign_key: true |
+| order_id       | string  | null: false, foreign_key: true |
+
+### Association
+belongs_to :user
+belongs_to :item

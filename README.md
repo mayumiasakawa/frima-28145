@@ -47,7 +47,7 @@ Things you may want to cover:
 | item_text        | string     | null: false                    |
 | item_category_id | integer    | null: false                    |
 | item_status_id   | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :user
 - has_one :order
@@ -56,8 +56,8 @@ Things you may want to cover:
 ## orders テーブル
 | Column   | Type       | Options                        |
 | -------- | ---------- | ------------------------------ |
-| user_id  | references | null: false, foreign_key: true |
-| item_id  | references | null: false, foreign_key: true |
+| user     | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
 ### Association
 has_one :shipping
@@ -72,7 +72,7 @@ belongs_to :item
 | house_number   | string      | null: false                     |
 | building_name  | string      |                                 |
 | phone_number   | string      | null: false                     |
-| order_id       | references  | null: false, foreign_key: true  |
+| order          | references  | null: false, foreign_key: true  |
 
 ### Association
 belongs_to :order

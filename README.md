@@ -40,12 +40,14 @@ Things you may want to cover:
 - has_many :comments
 
 ## items テーブル
-| Column        | Type    | Options     |
-| ------------- | ------- | ----------- |
-| item_name     | string  | null: false |
-| item_text     | string  | null: false |
-| item_category | integer | null: false |
-| item_status   | integer | null: false |
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| item_name     | string     | null: false                    |
+| item_image    | text       | null: false                    |
+| item_text     | string     | null: false                    |
+| item_category | integer    | null: false                    |
+| item_status   | integer    | null: false                    |
+| user_id       | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :user
 - has_one :order

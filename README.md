@@ -24,16 +24,16 @@ Things you may want to cover:
 * ...
 
 ## users テーブル
-| Column             | Type    | Options      |
-| ------------------ | ------- | ------------ |
-| first_name         | string  | null: false  |
-| last_name          | string  | null: false  |
-| first_name_kana    | string  | null: false  |
-| last_name_kana     | string  | null: false  |
-| nickname           | string  | null: false  |
-| birthday           | date    | null: false  |
-| email              | string  | null: false  |
-| encrypted_password | string  | null: false  | 
+| Column                | Type    | Options      |
+| --------------------- | ------- | ------------ |
+| first_name            | string  | null: false  |
+| last_name             | string  | null: false  |
+| first_name_kana       | string  | null: false  |
+| last_name_kana        | string  | null: false  |
+| nickname              | string  | null: false  |
+| birthday              | date    | null: false  |
+| email                 | string  | null: false  |
+| password_confirmation | string  | null: false  | 
 
 ### Association
 - has_many :items

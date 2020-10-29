@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :genre
+  has_one_attached :image
 
   VALID_NUMBER_REGEX = /^[300-9999999]/
   validates :name, presence: true

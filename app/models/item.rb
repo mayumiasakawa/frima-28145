@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :scheduled_delivery
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :text
     validates :category_id,  numericality: { other_than: 0 }

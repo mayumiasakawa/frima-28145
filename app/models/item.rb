@@ -19,4 +19,8 @@ class Item < ApplicationRecord
     validates :shipping_fee_id, numericality: { other_than: 0 }
     validates :scheduled_delivery_id, numericality: { other_than: 0 }
     end
+
+    def was_attached?
+      self.image.attached?
+    end
 end

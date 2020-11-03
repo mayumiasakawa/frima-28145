@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit]
   
   def index
     @items = Item.all.includes(:user).order("created_at DESC")
@@ -19,21 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
-    @category = Category.find_by(id: @item.category_id)
-    @status = Status.find_by(id: @item.status_id)
-    @shipping_fee = ShippingFee.find_by(id: @item.shipping_fee_id)
-    @prefecture = Prefecture.find_by(id: @item.prefecture_id)
-    @scheduled_delivery = ScheduledDelivery.find_by(id: @item.scheduled_delivery_id)
   end
 
   def edit
-    @item = Item.find(params[:id])
-    @category = Category.find_by(id: @item.category_id)
-    @status = Status.find_by(id: @item.status_id)
-    @shipping_fee = ShippingFee.find_by(id: @item.shipping_fee_id)
-    @prefecture = Prefecture.find_by(id: @item.prefecture_id)
-    @scheduled_delivery = ScheduledDelivery.find_by(id: @item.scheduled_delivery_id)
   end
 
   def update
@@ -54,4 +43,12 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :text, :category_id, :status_id, :price, :shipping_fee_id, :prefecture_id, :scheduled_delivery_id, :image).merge(user_id: current_user.id)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+    @category = Category.find_by(id: @item.category_id)
+    @status = Status.find_by(id: @item.status_id)
+    @shipping_fee = ShippingFee.find_by(id: @item.shipping_fee_id)
+    @prefecture = Prefecture.find_by(id: @item.prefecture_id)
+    @scheduled_delivery = ScheduledDelivery.find_by(id: @item.scheduled_delivery_id)
+  end
 end

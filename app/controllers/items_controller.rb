@@ -44,7 +44,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render :root
+      render :show
     end
   end
   

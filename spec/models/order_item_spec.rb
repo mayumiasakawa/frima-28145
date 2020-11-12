@@ -21,7 +21,7 @@ RSpec.describe OrderItem, type: :model do
       it 'postal_codeにハイフンがないと保存できない' do
         @order_item.postal_code = '1234567'
         @order_item.valid?
-        expect(@order_item.errors.full_messages).to include("Postal code Input correctly")
+        expect(@order_item.errors.full_messages).to include("Postal code is invalid. Input correctly")
       end
       it 'prefectureが空だと保存できない' do
         @order_item.prefecture = ''
@@ -42,7 +42,12 @@ RSpec.describe OrderItem, type: :model do
         @order_item.phone_number = ''
         @order_item.valid?
         expect(@order_item.errors.full_messages).to include("Phone number can't be blank")
-      end      
+      end
+      it 'tokenが空では保存できない' do
+        @order_item.token = nil
+        @order_item.valid?
+        expect(@order_item.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end

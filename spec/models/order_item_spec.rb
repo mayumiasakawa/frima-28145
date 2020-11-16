@@ -10,6 +10,10 @@ RSpec.describe OrderItem, type: :model do
       it '全ての値が正しく入力されていれば保存できる' do
         expect(@order_item).to be_valid
       end
+      it '建物名が抜けていても登録できる' do
+        @order_item.building_name = ''
+        expect(@order_item).to be_valid
+      end
     end
     context '情報の保存がうまくいかない時' do
       it 'postal_codeが空だと保存できない' do

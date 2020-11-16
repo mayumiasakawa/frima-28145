@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   belongs_to :user, optional: true
+  has_one :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -21,7 +22,7 @@ class Item < ApplicationRecord
     validates :scheduled_delivery_id, numericality: { other_than: 0 }
     end
 
-    def was_attached?
-      self.image.attached?
-    end
+  def was_attached?
+    self.image.attached?
+  end
 end

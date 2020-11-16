@@ -11,7 +11,6 @@ RSpec.describe OrderItem, type: :model do
         expect(@order_item).to be_valid
       end
     end
-
     context '情報の保存がうまくいかない時' do
       it 'postal_codeが空だと保存できない' do
         @order_item.postal_code = ''

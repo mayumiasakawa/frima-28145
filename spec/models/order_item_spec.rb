@@ -31,6 +31,11 @@ RSpec.describe OrderItem, type: :model do
         @order_item.valid?
         expect(@order_item.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it 'prefectureが0だと保存できない' do
+        @order_item.prefecture = '0'
+        @order_item.valid?
+        expect(@order_item.errors.full_messages).to include("Prefecture can't be blank")
+      end
       it 'cityが空だと保存できない' do
         @order_item.city = ''
         @order_item.valid?
@@ -45,6 +50,16 @@ RSpec.describe OrderItem, type: :model do
         @order_item.phone_number = ''
         @order_item.valid?
         expect(@order_item.errors.full_messages).to include("Phone number can't be blank")
+      end
+      it 'phone_numeberにハイフンがあると保存できない' do
+        @order_item.phone_number = '-'
+        @order_item.valid?
+        expect(@order_item.errors.full_messages).to include("Phone number can't be blank. Input only number")
+      end
+      it 'phone_numeberが11桁以上だと保存できない' do
+        @order_item.phone_number = '01234567890123'
+        @order_item.valid?
+        expect(@order_item.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
       end
       it 'tokenが空では保存できない' do
         @order_item.token = nil

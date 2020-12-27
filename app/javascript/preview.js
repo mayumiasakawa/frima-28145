@@ -1,6 +1,16 @@
-if (document.getElementsByClassName( 'sell-btn' ) || document.URL.match( /edit/ ) )  {
-  document.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function() {
+  // ( document.getElementsByClassName( 'sell-btn' ) || document.URL.match( /edit/ ) )
+  const sellBtn = document.getElementById( 'sell-btn' );
+  console.log(sellBtn);
+  if (!sellBtn) return null;
+  // document.addEventListener('DOMContentLoaded', function(){
     const ImageList = document.getElementById('image-list');
+    const ItemImage = document.getElementById('item-image');
+
+    const imageContent = document.querySelector('img');
+    imageContent.addEventListener('error',() => {
+      　imageContent.style.display = 'none';
+      });
 
     const createImageHTML = (blob) => {
        // 画像を表示するためのdiv要素を生成
@@ -15,9 +25,8 @@ if (document.getElementsByClassName( 'sell-btn' ) || document.URL.match( /edit/ 
       ImageList.appendChild(imageElement);
     };
 
-    document.getElementById('item-image').addEventListener('change', function(e){
+    ItemImage.addEventListener('change', function(e){
       // 画像が表示されている場合のみ、すでに存在している画像を削除する
-      const imageContent = document.querySelector('img');
       if (imageContent){
         imageContent.remove();
       }
@@ -27,5 +36,5 @@ if (document.getElementsByClassName( 'sell-btn' ) || document.URL.match( /edit/ 
 
       createImageHTML(blob);
     });
-  });
-}
+  // });
+});

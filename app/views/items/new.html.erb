@@ -23,6 +23,10 @@
         </p>
         <%= f.file_field :image, id:"item-image" %>
       </div>
+      <div id="image-list">
+      <%= image_tag @item.image, id: 'image' if @item.image.present? %>
+      </div>
+      
     </div>
     <%# /出品画像 %>
     <%# 商品名と商品説明 %>
@@ -138,7 +142,7 @@
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%= f.submit "出品する" ,class:"sell-btn", id:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>

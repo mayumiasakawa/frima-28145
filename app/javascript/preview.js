@@ -1,16 +1,11 @@
 window.addEventListener('DOMContentLoaded', function() {
   // ( document.getElementsByClassName( 'sell-btn' ) || document.URL.match( /edit/ ) )
   const sellBtn = document.getElementById( 'sell-btn' );
-  console.log(sellBtn);
   if (!sellBtn) return null;
   // document.addEventListener('DOMContentLoaded', function(){
     const ImageList = document.getElementById('image-list');
     const ItemImage = document.getElementById('item-image');
-
     const imageContent = document.querySelector('img');
-    imageContent.addEventListener('error',() => {
-      　imageContent.style.display = 'none';
-      });
 
     const createImageHTML = (blob) => {
        // 画像を表示するためのdiv要素を生成
@@ -37,4 +32,21 @@ window.addEventListener('DOMContentLoaded', function() {
       createImageHTML(blob);
     });
   // });
+
+  function check() {
+    const imageContents = document.querySelectorAll('img');
+    imageContents.forEach(function (imageContent) {
+        const XHR = new XMLHttpRequest();
+        XHR.open("GET", `/items`, true);
+        XHR.responseType = "json";
+        XHR.send();
+        XHR.onload = () => {
+          if (XHR.status < 400) {
+            imageContent.style.display = 'none';
+          }
+      };
+    });
+  }
+  window.addEventListener("load", check);
+
 });

@@ -8,6 +8,11 @@ window.addEventListener('DOMContentLoaded', function() {
      }
       document.getElementById('item-image').addEventListener('change', function(e){
         const ImageList = document.getElementById('image-list');
+        const imageContent = document.querySelector('img');
+
+        if (imageContent){
+          imageContent.remove();
+        }
   
         const createImageHTML = (blob) => {
            // 画像を表示するためのdiv要素を生成

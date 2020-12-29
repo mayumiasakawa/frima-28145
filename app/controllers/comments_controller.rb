@@ -5,6 +5,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @message = Message.new(text: params[:message][:text])
+    @comment = Comment.new(text: params[:comment][:text])
+    if @comment.save
+      ApplicationCable.server.boradcast 'comment_channel', content: @comment
+    end
   end
 end

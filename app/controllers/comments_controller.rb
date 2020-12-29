@@ -5,11 +5,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-
     @comment = Comment.create(comment_params)
     if @comment.save
-
-      redirect_to "/items/#{@comment.item.id}"
+      ActionCable.server.broadcast 'comment_channel', content: @comment
     end
   end
 

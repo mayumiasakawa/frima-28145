@@ -1,11 +1,11 @@
 <h1>Comments#new</h1>
-<%= form_with model: @message do |f| %>
+<%= form_with model: @comment do |f| %>
   <%= f.text_field :text %>
   <%= f.submit '送信' %>
 <% end %>
 
-<div id='messages'>
-  <% @messages.reverse_each do |message| %>
-    <p><%= message.text %></p>
+<div id='comments'>
+  <% @comments.reverse_each do |comment| %>
+    <p><%= comment.text %></p>
   <% end %>
 </div>

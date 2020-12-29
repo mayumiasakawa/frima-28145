@@ -140,7 +140,7 @@
 
 /* /商品の概要 */
 
-.comment-box {
+.comment-box ,.comments-table {
   width: 40vw;
   background-color: #fff;
   margin: 5vh 0;
@@ -203,4 +203,14 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+
+#comment_text,.comment_text{
+  padding: 16px;
+  line-height: 1.5;
+  text-align:left;
+}
+
+.input-text{
+  margin-bottom: 10px;
 }

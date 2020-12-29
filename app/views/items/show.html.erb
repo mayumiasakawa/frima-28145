@@ -107,18 +107,17 @@
     <% end %>
   </div>
   
-  <h3>コメント一覧</h3>
-  <div id="comments">
-  <% @comments.reverse_each do |comment| %>
-    <p>
-    <%= comment.user.nickname %>
-    <p class='comment_text'>
-    <%= comment.text %>
-    </p>
-    </p>
-    <% end %>
-    </div>
-
+  <table class="comments-table">
+    <tbody id="comments">
+      <caption>コメント一覧</caption>
+        <% @comments.reverse_each do |comment| %>
+          <tr>
+            <td><%= comment.user.nickname %></td>
+            <td id='comment_text'><%= comment.text %></td>
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
 
   <div class="links">
     <a href="#" class="change-item-btn">

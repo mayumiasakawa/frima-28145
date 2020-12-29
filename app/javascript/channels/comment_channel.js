@@ -10,8 +10,8 @@ consumer.subscriptions.create("CommentChannel", {
   },
 
   received(data) {
-    const html = `<div class="input-text">${ data.user.nickname }<p>${data.content.text}</p></div>`
-    const comments = document.getElementById('comments-show');
+    const html = `<td>入力したコメント</td><td class="comment_text">${data.content.text}</td>`
+    const comments = document.getElementById('comments');
     const newComment = document.getElementById('comment_text');
     comments.insertAdjacentHTML('afterbegin',html);
     newComment.value='';

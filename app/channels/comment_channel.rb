@@ -12,4 +12,3 @@ class CommentChannel < ApplicationCable::Channel
   end
 
 end
-　
